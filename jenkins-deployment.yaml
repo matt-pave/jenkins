@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  labels:
+    app: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      volumes:
+        - name: pvc-jenkins
+          gcePersistentDisk:
+            pdName: jenkins-disk
+            fsType: ext4
+            readOnly: false
+      containers:
+      - name: jenkins
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: pvc-jenkins
+        image: gcr.io/jenkins-316218/jenkins:0.8
+        ports:
+        - containerPort: 8080
