@@ -1,5 +1,5 @@
 node {
     def rootDir = pwd()
-    def main = load "${rootDir}@script/scripts/main.Groovy "
+    def main = load "./scripts/main.Groovy"
     main.exampleMethod()
 }
