@@ -1,1 +1,1 @@
-@Library('jenkins@main')
+library 'jenkins@main'
