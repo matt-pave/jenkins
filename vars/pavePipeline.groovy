@@ -10,7 +10,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         def rootDir = pwd()
-                        sh "ls -la ../${workspace}@libs/jenkins/src/pave/tools"
+                        sh "ls -la ${workspace}@libs/jenkins/src/pave/tools"
                    }
                }
            }
