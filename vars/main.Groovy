@@ -1,3 +1,3 @@
-def main(){
-    println("TEST")
+def call() {
+    echo "WHY ARE YOU CALLING THIS FUNCTION!??!"
 }
