@@ -10,7 +10,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         def rootDir = pwd()
-                        sh "ls -la .."
+                        sh "ls -la ../node-app_main@libs"
                    }
                }
            }
