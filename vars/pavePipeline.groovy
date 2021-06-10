@@ -1,4 +1,4 @@
-import org.mytools
+import pave.mytools
 Tools tools = new Tools(this)
 
 def call(String repoUrl) {
