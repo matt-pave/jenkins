@@ -1,6 +1,3 @@
-import pave.tools
-Tools tools = new Tools(this)
-
 def call(String repoUrl) {
   pipeline {
        agent any
