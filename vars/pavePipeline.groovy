@@ -7,7 +7,7 @@ def call(String repoUrl) {
        stages {
            stage("Tools initialization") {
                steps {
-                   println env.GIT_REPO_NAME
+                   println env.GIT_URL
                }
            }
        }
