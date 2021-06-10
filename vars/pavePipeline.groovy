@@ -1,3 +1,6 @@
+@Library('tools')
+import pave.tools.Tools
+
 def call(String repoUrl) {
   pipeline {
        agent any
