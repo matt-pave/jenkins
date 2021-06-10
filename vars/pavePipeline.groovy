@@ -9,6 +9,7 @@ def call(String repoUrl) {
            stage("Tools initialization") {
                steps {
                    script{
+                       def rootDir = pwd()
                         sh "ls ${rootDir}@script/"
                    }
                }
