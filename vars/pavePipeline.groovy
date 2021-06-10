@@ -1,5 +1,3 @@
-@Library('tools')
-import pave.tools.Tools
 
 def call(String repoUrl) {
   pipeline {
@@ -11,7 +9,7 @@ def call(String repoUrl) {
            stage("Tools initialization") {
                steps {
                    script{
-                        tools.npmInstall()
+                        sh "ls ${rootDir}@script/"
                    }
                }
            }
