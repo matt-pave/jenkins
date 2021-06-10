@@ -1,4 +1,4 @@
-import com.pave.main.Npm
+import com.pave.main;
 
 def call(String repoUrl) {
   pipeline {

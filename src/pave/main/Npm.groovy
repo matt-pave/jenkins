@@ -1,4 +1,4 @@
-package pave.main
+package pave.main;
 class Npm{
     def Install(){
         sh "npm install"
