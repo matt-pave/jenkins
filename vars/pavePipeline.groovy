@@ -8,9 +8,11 @@ def call(String repoUrl) {
        stages {
            stage("Tools initialization") {
                steps {
-                    def rootDir = pwd()
-                    def npm = load "${rootDir}@script/npm.groovy "
-                    npm.install()
+                   script{
+                        def rootDir = pwd()
+                        def npm = load "${rootDir}@script/npm.groovy "
+                        npm.install()
+                   }
                }
            }
        }
