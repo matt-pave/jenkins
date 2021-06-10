@@ -1,2 +1,2 @@
 @Library('jenkins@main') _
-main
+pavePipeline()
