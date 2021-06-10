@@ -10,7 +10,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         def rootDir = pwd()
-                        sh "ls -la ../node-app_main@libs/jenkins"
+                        sh "ls -la ../node-app_main@libs/jenkins/src/pave/tools"
                    }
                }
            }
