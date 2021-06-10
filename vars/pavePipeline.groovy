@@ -11,8 +11,7 @@ def call(String repoUrl) {
            stage("Tools initialization") {
                steps {
                    script{
-                        def npm = new Npm()
-                        npm.Install()
+                        tools.npmInstall()
                    }
                }
            }
