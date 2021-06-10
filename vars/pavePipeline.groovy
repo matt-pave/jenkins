@@ -12,7 +12,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         def npm = new Npm()
-                        npm.install()
+                        npm.Install()
                    }
                }
            }
