@@ -1,2 +1,6 @@
-credentials:1.18
-maven-plugin:2.7.1
+credentials
+workflow-cps 
+workflow-cps-global-lib 
+workflow-aggregator 
+git
+nodejs

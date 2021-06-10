@@ -4,6 +4,8 @@ ENV JENKINS_OPTS=--argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin
 
 USER root
 
-RUN /usr/local/bin/install-plugins.sh credentials maven-plugin workflow-cps workflow-cps-global-lib workflow-aggregator git
+COPY plugins.txt plugins.txt
+
+RUN /usr/local/bin/install-plugins.sh < plugins.txt
 
 USER jenkins
