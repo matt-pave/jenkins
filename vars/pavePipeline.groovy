@@ -1,4 +1,4 @@
-import org.any
+import pave.main
 
 def call(String repoUrl) {
   pipeline {
