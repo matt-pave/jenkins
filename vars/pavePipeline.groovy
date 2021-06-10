@@ -10,7 +10,7 @@ def call(String repoUrl) {
                steps {
                    script{
                        def rootDir = pwd()
-                        sh "ls ${rootDir}@script/"
+                        sh "ls ${rootDir}"
                    }
                }
            }
