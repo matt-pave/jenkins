@@ -1,4 +1,5 @@
-import com.pave.main;
+import org.mytools.Utils
+Tools tools = new Tools(this)
 
 def call(String repoUrl) {
   pipeline {
@@ -6,7 +7,6 @@ def call(String repoUrl) {
        environment {
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
        }
-       
        stages {
            stage("Tools initialization") {
                steps {
