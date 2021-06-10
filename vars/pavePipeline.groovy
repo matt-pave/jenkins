@@ -11,7 +11,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         def tools = load "${TOOLS}tools.groovy"
-                        tools.install()
+                        tools.npmInstall()
                    }
                }
            }
