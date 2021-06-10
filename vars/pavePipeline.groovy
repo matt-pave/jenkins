@@ -4,10 +4,13 @@ def call(String repoUrl) {
        environment {
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
        }
+       
        stages {
            stage("Tools initialization") {
                steps {
-                   println env.GIT_URL
+                    def rootDir = pwd()
+                    def npm = load "${rootDir}@script/npm.groovy "
+                    npm.install()
                }
            }
        }
