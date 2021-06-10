@@ -1,3 +1,3 @@
 def call() {
-    echo "WHY ARE YOU CALLING THIS FUNCTION!??!"
+    println "WHY ARE YOU CALLING THIS FUNCTION!??!"
 }
