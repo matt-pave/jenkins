@@ -1,4 +1,4 @@
-import org.mytools.Utils
+import org.mytools
 Tools tools = new Tools(this)
 
 def call(String repoUrl) {
