@@ -1,5 +1,6 @@
-def install(){
-    sh "npm install"
+package org.any
+class Npm{
+    def Install(){
+        sh "npm install"
+    }
 }
-
-return this 

@@ -1,3 +1,5 @@
+import org.any
+
 def call(String repoUrl) {
   pipeline {
        agent any
@@ -9,8 +11,7 @@ def call(String repoUrl) {
            stage("Tools initialization") {
                steps {
                    script{
-                        def rootDir = pwd()
-                        def npm = load "${rootDir}@script/npm.groovy "
+                        def npm = new Npm()
                         npm.install()
                    }
                }
