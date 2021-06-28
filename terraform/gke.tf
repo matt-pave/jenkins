@@ -22,6 +22,7 @@ resource "google_container_cluster" "primary" {
   location           = "us-central1-a"
   initial_node_count = 1
   project = var.project
+  remove_default_node_pool = true
 
   node_config {
     service_account = google_service_account.default.email
@@ -33,17 +34,48 @@ resource "google_container_cluster" "primary" {
     }
     tags = ["jenkins"]
   }
+
   timeouts {
     create = "30m"
     update = "40m"
   }
+  lifecycle {
+    ignore_changes = [
+      node_config
+    ] 
+  }
+
+}
+
+resource "google_container_node_pool" "primary_preemptible_nodes" {
+  name       = "jenkins-node-pool"
+  location   = "us-central1-a"
+  cluster    = google_container_cluster.primary.name
+  node_count = 1
+
+  node_config {
+    preemptible  = true
+    machine_type = "n2-standard-2"
+
+    service_account = google_service_account.default.email
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+  }
+
+    depends_on = [
+        google_container_cluster.primary
+    ]
+
 }
 
 resource "google_compute_disk" "default" {
+  provider = google-beta
   name  = "jenkins-disk"
   type  = "pd-ssd"
   zone = "us-central1-a"
   physical_block_size_bytes = 4096
+  multi_writer = true
 }
 
 #TODO add autoscaling here

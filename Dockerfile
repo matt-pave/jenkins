@@ -8,4 +8,3 @@ COPY plugins.txt plugins.txt
 
 RUN /usr/local/bin/install-plugins.sh < plugins.txt
 
-USER jenkins
