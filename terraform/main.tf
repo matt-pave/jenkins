@@ -1,9 +1,9 @@
 provider "google" {
-  project     = "jenkins-316218"
+  project     = "trove-equity"
   region      = "us-central1"
 }
 
 provider "google-beta" {
-  project     = "jenkins-316218"
+  project     = "trove-equity"
   region      = "us-central1"
 }
