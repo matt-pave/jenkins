@@ -1,6 +1,6 @@
 terraform {
  backend "gcs" {
-   bucket  = "jenkins-316218"
-   prefix  = "terraform/state"
+   bucket  = "pave-terraform-backend"
+   prefix  = "poc-terraform/state"
  }
 }
