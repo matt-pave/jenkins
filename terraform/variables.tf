@@ -1,5 +1,5 @@
 variable project {
   type        = string
-  default     = "jenkins-316218"
+  default     = "trove-equity"
   description = "description"
 }

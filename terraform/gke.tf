@@ -8,7 +8,7 @@ resource "google_service_account" "default" {
 data "google_iam_policy" "admin" {
   binding {
     role = "roles/owner"
-    members = ["user:matt@j-bailey.com"]
+    members = ["user:mbailey@pave.com"]
   }
 }
 
@@ -30,7 +30,7 @@ resource "google_container_cluster" "primary" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
     labels = {
-      foo = "jenkins"
+      service = "jenkins"
     }
     tags = ["jenkins"]
   }
@@ -56,8 +56,6 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   node_config {
     preemptible  = true
     machine_type = "n2-standard-2"
-
-    service_account = google_service_account.default.email
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]

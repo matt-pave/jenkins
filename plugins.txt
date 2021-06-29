@@ -4,3 +4,6 @@ workflow-cps-global-lib
 workflow-aggregator 
 git
 nodejs
+google-kubernetes-engine
+gcloud-sdk
+kubernetes
