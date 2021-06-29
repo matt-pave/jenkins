@@ -4,7 +4,6 @@ def call(String repoUrl) {
        environment {
             TOOLS = "${workspace}@libs/jenkins/src/pave/tools/"
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-            DOCKER_HOST="tcp://0.0.0.0:2375"
        }
        stages {
             stage("Clone") {
