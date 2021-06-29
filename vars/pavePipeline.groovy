@@ -30,7 +30,6 @@ def call(String repoUrl) {
         }
         success {
             echo 'I succeeded!'
-            ithubNotify status: "SUCCESS", credentialsId: "", account: "", repo: env.GIT_URL
         }
         unstable {
             echo 'I am unstable :/'
