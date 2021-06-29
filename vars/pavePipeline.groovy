@@ -42,9 +42,11 @@ def call(String repoUrl) {
             echo 'I succeeded!'
         }
         unstable {
+            setBuildStatus("Build unstable", "UNSTABLE");
             echo 'I am unstable :/'
         }
         failure {
+            setBuildStatus("Build failed", "FAILURE");
             echo 'I failed :('
         }
         changed {
@@ -59,7 +61,7 @@ void setBuildStatus(String message, String state) {
 step([
     $class: "GitHubCommitStatusSetter",
     reposSource: [$class: "ManuallyEnteredRepositorySource", url: env.GIT_URL],
-    contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+    contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "Jenkins"],
     commitShaSource: [$class: "ManuallyEnteredShaSource", sha: env.GIT_COMMIT],
     errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
     statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
