@@ -9,7 +9,7 @@ def call(String repoUrl) {
             stage("Clone") {
                steps {
                    script{
-                       sh 'docker service start'
+                       sh 'service  docker start'
                        checkout([$class: 'GitSCM', branches: [[name: "*/${env.BRANCH_NAME}"]],
                         userRemoteConfigs: [[url: env.GIT_URL]]])
                    }
