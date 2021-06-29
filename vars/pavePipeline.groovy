@@ -4,6 +4,7 @@ def call(String repoUrl) {
        environment {
             TOOLS = "${workspace}@libs/jenkins/src/pave/tools/"
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+            DOCKER_ARGS='-v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):$(which docker)'
        }
        stages {
             stage("Clone") {
@@ -26,7 +27,7 @@ def call(String repoUrl) {
            stage("Build") {
                steps {
                    script{
-                         def newApp = docker('-v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):$(which docker)').build "gcr.io/trove-equity/jenkins:${env.BUILD_TAG}"
+                         sh "docker build ${DOCKER_ARGS}. -t gcr.io/trove-equity/jenkins:${env.BUILD_TAG}"
                          //newApp.push()
                    }
                }
