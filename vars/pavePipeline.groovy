@@ -29,8 +29,6 @@ def call(String repoUrl) {
             deleteDir() /* clean up our workspace */
         }
         success {
-            def tools = load "${TOOLS}tools.groovy"
-            tools.setBuildStatus("Success", "SUCCESS")
             echo 'I succeeded!'
         }
         unstable {
