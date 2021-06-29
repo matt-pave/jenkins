@@ -22,6 +22,14 @@ def call(String repoUrl) {
                    }
                }
            }
+           stage("Test") {
+               steps {
+                   script{
+                       def tools = load "${TOOLS}tools.groovy"
+                       tools.npmTest()
+                   }
+               }
+           }
            stage("Deploy") {
                steps {
                    script{
