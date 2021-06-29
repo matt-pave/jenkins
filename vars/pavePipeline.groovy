@@ -1,4 +1,3 @@
-def tools = load "${TOOLS}tools.groovy"
 def call(String repoUrl) {
   pipeline {
        agent any
@@ -10,7 +9,8 @@ def call(String repoUrl) {
            stage("Build") {
                steps {
                    script{
-                        tools.npmInstall()
+                       def tools = load "${TOOLS}tools.groovy"
+                       tools.npmInstall()
                    }
                }
            }
@@ -29,6 +29,8 @@ def call(String repoUrl) {
             deleteDir() /* clean up our workspace */
         }
         success {
+            def tools = load "${TOOLS}tools.groovy"
+            tools.setBuildStatus("Success", "SUCCESS")
             echo 'I succeeded!'
         }
         unstable {
