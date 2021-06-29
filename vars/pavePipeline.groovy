@@ -26,7 +26,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         echo "Deploy"
-                        sh 'ls'
+                        echo env.GIT_URL
                    }
                }
            }
