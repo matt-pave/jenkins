@@ -14,11 +14,19 @@ def call(String repoUrl) {
                    }
                }
            }
-           stage("Build") {
+           stage("Install") {
                steps {
                    script{
                        def tools = load "${TOOLS}tools.groovy"
                        tools.npmInstall()
+                   }
+               }
+           }
+           stage("Build") {
+               steps {
+                   script{
+                         def newApp = docker.build "gcr.io/trove-equity/jenkins:${env.BUILD_TAG}"
+                         newApp.push()
                    }
                }
            }
@@ -33,8 +41,7 @@ def call(String repoUrl) {
            stage("Deploy") {
                steps {
                    script{
-                        echo "Deploy"
-                        echo env.GIT_URL
+                        sh "ls"
                    }
                }
            }
