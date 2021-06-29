@@ -7,3 +7,4 @@ nodejs
 google-kubernetes-engine
 gcloud-sdk
 kubernetes
+github

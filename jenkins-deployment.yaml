@@ -25,6 +25,6 @@ spec:
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: pvc-jenkins
-        image: gcr.io/trove-equity/jenkins:0.03
+        image: gcr.io/trove-equity/jenkins:0.04
         ports:
         - containerPort: 8080
