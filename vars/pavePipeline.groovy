@@ -6,7 +6,7 @@ def call(String repoUrl) {
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
        }
        stages {
-            stage("Build") {
+            stage("Clone") {
                steps {
                    script{
                        checkout([$class: 'GitSCM', branches: [[name: "*/${env.BRANCH_NAME}"]],
