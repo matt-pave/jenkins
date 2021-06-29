@@ -6,6 +6,14 @@ def call(String repoUrl) {
             GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
        }
        stages {
+            stage("Build") {
+               steps {
+                   script{
+                       checkout([$class: 'GitSCM', branches: [[name: "*/${env.BRANCH_NAME}"]],
+                        userRemoteConfigs: [[url: env.GIT_URL]]])
+                   }
+               }
+           }
            stage("Build") {
                steps {
                    script{
@@ -18,6 +26,7 @@ def call(String repoUrl) {
                steps {
                    script{
                         echo "Deploy"
+                        sh 'ls'
                    }
                }
            }
