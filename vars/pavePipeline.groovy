@@ -26,7 +26,7 @@ def call(String repoUrl) {
            stage("Build") {
                steps {
                    script{
-                         def newApp = docker.build "gcr.io/trove-equity/jenkins:${env.BUILD_TAG}"
+                         def newApp = docker.build("-v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):$(which docker)") "gcr.io/trove-equity/jenkins:${env.BUILD_TAG}"
                          //newApp.push()
                    }
                }
